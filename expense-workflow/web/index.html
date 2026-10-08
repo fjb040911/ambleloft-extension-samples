@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>差旅报销助手</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="eyebrow">AMBLELOFT / FLAGSHIP SAMPLE</span>
+        <div class="hero">
+          <div>
+            <h1 data-en="Travel Expense Assistant">差旅报销助手</h1>
+            <p data-en="From a conversation to a claim you can verify.">
+              从一句报销需求，到一张可核实的报销单。
+            </p>
+          </div>
+          <span class="tag" data-en="Local demo · No account needed">本机演示 · 无需企业账号</span>
+        </div>
+      </header>
+      <div class="layout">
+        <section class="panel">
+          <h2 data-en="Start in your conversation">在聊天中开始办理</h2>
+          <p
+            class="prompt"
+            data-en="Use the travel expense assistant to claim CNY 1,280 for a customer visit in Shanghai."
+          >
+            用差旅报销助手报销去上海拜访客户的差旅费，总计 1280 元。
+          </p>
+          <ol class="steps">
+            <li data-en="Itinerary — choose your destination and date.">
+              行程 · 选择地区和日期，确认保存业务草稿。
+            </li>
+            <li data-en="Expenses — enter the total and explain the costs.">
+              费用 · 填写总金额与说明，核对每一项支出。
+            </li>
+            <li data-en="Review — confirm and submit to the demo service.">
+              核对 · 确认后提交到模拟服务，返回报销单号。
+            </li>
+          </ol>
+          <p
+            class="hint"
+            data-en="Open a chat and enter the prompt above. This page does not automatically start a model or present a form."
+          >
+            在聊天中输入上方提示词。此页面不会自动启动模型或弹出表单。
+          </p>
+        </section>
+        <aside class="panel">
+          <h2 data-en="Demo service">演示服务</h2>
+          <div class="actions">
+            <button id="check" data-en="Check connection">检查连接</button
+            ><button class="secondary" id="refresh" data-en="Refresh records">刷新记录</button>
+          </div>
+          <p id="status" role="status">正在连接宿主…</p>
+          <p
+            class="hint"
+            data-en="Start npm run service, then set serviceUrl to http://127.0.0.1:47832 in extension settings."
+          >
+            先运行 <code>npm run service</code>，再在扩展设置中将 serviceUrl 设为
+            <code>http://127.0.0.1:47832</code>。
+          </p>
+          <p
+            class="hint"
+            data-en="If a submission result is unknown, use Check submission result in the original form. Do not submit again."
+          >
+            结果待核实时，请回到原表单点击“核实提交结果”，不要再次提交。
+          </p>
+        </aside>
+        <section class="panel wide">
+          <h2 data-en="Recent claims">最近报销记录</h2>
+          <p
+            class="hint"
+            data-en="Up to 50 records from the demo ledger. Submitted does not mean approved or paid."
+          >
+            从模拟服务账本读取最近 50 条记录。“已提交”不代表审批通过或已付款。
+          </p>
+          <div class="records" id="records">
+            <p data-en="Refresh records after submitting your first claim.">
+              提交第一张报销单后，点击“刷新记录”。
+            </p>
+          </div>
+        </section>
+      </div>
+      <footer
+        data-en="Fictional data only. Nothing is sent to a real finance system. SDK 0.1.0-alpha.7."
+      >
+        仅使用虚构数据，不提交到真实财务系统。SDK 0.1.0-alpha.7。
+      </footer>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

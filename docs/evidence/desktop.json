@@ -1,0 +1,487 @@
+{
+  "time": "2026-10-08T08:21:44.848Z",
+  "node": "v24.14.1",
+  "platform": "darwin",
+  "model": "local deterministic Responses fixture",
+  "profile": "temporary isolated profile",
+  "results": [
+    {
+      "sample": "hello-operation",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.hello-operation"
+      }
+    },
+    {
+      "sample": "npm-data-transform",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.npm-data-transform"
+      }
+    },
+    {
+      "sample": "project-card",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.project-card"
+      }
+    },
+    {
+      "sample": "extension-home",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.extension-home"
+      }
+    },
+    {
+      "sample": "theme-and-i18n",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.theme-and-i18n"
+      }
+    },
+    {
+      "sample": "extension-icons",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.extension-icons"
+      }
+    },
+    {
+      "sample": "storage-notebook",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.storage-notebook"
+      }
+    },
+    {
+      "sample": "configuration",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.configuration"
+      }
+    },
+    {
+      "sample": "secret-input",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.secret-input"
+      }
+    },
+    {
+      "sample": "contextual-entry",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.contextual-entry"
+      }
+    },
+    {
+      "sample": "conversation-launcher",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.conversation-launcher"
+      }
+    },
+    {
+      "sample": "operation-confirmation",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.operation-confirmation"
+      }
+    },
+    {
+      "sample": "cancellation-and-errors",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.cancellation-and-errors"
+      }
+    },
+    {
+      "sample": "local-messages",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.local-messages"
+      }
+    },
+    {
+      "sample": "declarative-intake",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.declarative-intake"
+      }
+    },
+    {
+      "sample": "enterprise-auth",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.enterprise-auth"
+      }
+    },
+    {
+      "sample": "message-actions",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.message-actions"
+      }
+    },
+    {
+      "sample": "service-events",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.service-events"
+      }
+    },
+    {
+      "sample": "mcp-apps-card",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.mcp-apps-card"
+      }
+    },
+    {
+      "sample": "team-workbench",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.team-workbench"
+      }
+    },
+    {
+      "sample": "extension-showcase",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.extension-showcase"
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.expense-workflow"
+      }
+    },
+    {
+      "sample": "submission-recovery",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.submission-recovery"
+      }
+    },
+    {
+      "sample": "hello-operation",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "hello-operation/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "npm-data-transform",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "npm-data-transform/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "project-card",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "project-card/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "extension-home",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "extension-home/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "theme-and-i18n",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "theme-and-i18n/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "extension-icons",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "extension-icons/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "storage-notebook",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "storage-notebook/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "configuration",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "configuration/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "secret-input",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "secret-input/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "contextual-entry",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "contextual-entry/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "conversation-launcher",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "conversation-launcher/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "operation-confirmation",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "operation-confirmation/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "cancellation-and-errors",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "cancellation-and-errors/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "local-messages",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "local-messages/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "declarative-intake",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "declarative-intake/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "enterprise-auth",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "enterprise-auth/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "message-actions",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "message-actions/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "service-events",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "service-events/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "team-workbench",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "team-workbench/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "extension-showcase",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "extension-showcase/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "expense-workflow/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "submission-recovery",
+      "check": "home-render",
+      "status": "passed",
+      "evidence": {
+        "urlScheme": "amble-extension",
+        "screenshot": "submission-recovery/screenshots/01-home.png"
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "three-step-claim",
+      "status": "passed",
+      "evidence": {
+        "countDelta": 1,
+        "status": "completed",
+        "amount": "1280.00",
+        "results": {
+          "itinerary": {
+            "draftId": "4dcc5515-f4fc-43ba-8d30-367519420954"
+          },
+          "confirmation": {
+            "expenseId": "70e388b7-ff96-49fb-b59d-2453f72b3080",
+            "status": "submitted"
+          }
+        }
+      }
+    },
+    {
+      "sample": "submission-recovery",
+      "check": "drop-response-recovery",
+      "status": "passed",
+      "evidence": {
+        "countDelta": 1,
+        "status": "completed",
+        "amount": "1280.00",
+        "results": {
+          "itinerary": {
+            "draftId": "37bcd0cf-24eb-4c23-8822-a6ef4aada526"
+          },
+          "confirmation": {
+            "expenseId": "e6a3a6e7-8cb2-431f-b526-b5873968556c",
+            "status": "submitted"
+          }
+        }
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "records-query",
+      "status": "passed",
+      "evidence": {
+        "rows": 2
+      }
+    },
+    {
+      "sample": "declarative-intake",
+      "check": "form-present",
+      "status": "passed",
+      "evidence": {
+        "template": "team-intake"
+      }
+    },
+    {
+      "sample": "mcp-apps-card",
+      "check": "render-edit-confirm-save",
+      "status": "passed",
+      "evidence": {
+        "destination": "杭州"
+      }
+    },
+    {
+      "sample": "enterprise-auth",
+      "check": "production-idp",
+      "status": "not-run",
+      "evidence": "No enterprise IdP configured; only unconnected status UI tested."
+    }
+  ],
+  "hashes": {
+    "core/forms/service.cjs": "a2cd7bb491c7e6819e62973d98722e172a2e96e5af6a7176f35f1b1e961a445a",
+    "core/extensions/bootstrap.cjs": "9bad846c547b2b89057178a3a066e9f71f0b9f0f1e39e96b661c50130ad85a29",
+    "dist/index.html": "9016fa1e96971901161452cfb95d9fa8174e50e6364186f774db6a89a787114f",
+    "hello-operation": "dae3b18b6f3c4a2295448f18a8fe329da0457bd5e98af27b868c40d621c848ff",
+    "npm-data-transform": "a7d070723d47ae5282c1a605773e348a9547473ebee21d52c28b321c3d5684b7",
+    "project-card": "3bac2f2d3ff9c8324e9c33bb8a36c611b7b73474fa9e77915b192d88186359cc",
+    "extension-home": "a1744d74dbaae26e2a91b3b4e1ecff4ae5267221b7a38e102be981c164d9adcc",
+    "theme-and-i18n": "5a1d5ecd7c17576f1fa4e4c7caaea01e3d28819c0bf25b83e7d5527cee262567",
+    "extension-icons": "cd196e663150c7e9686f24a398803b7ebac4f55dbc370de29e476ab24ef4b60a",
+    "storage-notebook": "e8584ca3cd8680d6eaab63a94cbe00f3e61f4f50f2a1e4f14005556ed9b2e808",
+    "configuration": "ecce1a2a2f5ebb7b1b29a307958892bcd37cd2bc5ef55b1ae4244271d9c92161",
+    "secret-input": "1a45b8c24578291342e9d03d47bdd85018710fda19212d3918d0c33d30909e84",
+    "contextual-entry": "71525936878892f8fd4a46cd7d80135ceaf66ed9f14004c07015217dbcba0edd",
+    "conversation-launcher": "1bcd7f0bf209b19f1a90e56c2ba1efd82bbe46f58c8d1935820383fc874c3342",
+    "operation-confirmation": "d11997cce37e6243a0baad96bc92dccdc995a38aca1d00e40bde6dd3061cdae1",
+    "cancellation-and-errors": "3c8be3e04b7fad0223ce52156adcbc7de30c05f4ce57fc38022ce9e3f9e39d9e",
+    "local-messages": "a60fc5d793485cfb1992e9a780dd1388ffdd30ea747b232efaf835dde374e683",
+    "declarative-intake": "9c143d0ad4f2ba197b01af901b07aafae8d2fdc6c4400bb67f024469176ca52f",
+    "enterprise-auth": "d8420eee93663205c325923fabaf55aa16303ff55d735270a7fd5110e765c666",
+    "message-actions": "e667de0a8a81b0e96b577e179532f3ce1af5f72925a123bb6423000d440f496a",
+    "service-events": "04058d5afc2d72a79fcf1a35355688e93aa2943588a1e7489ddd1531d7d86211",
+    "mcp-apps-card": "e630fcb78c5849ea444765e394a6798a170f6c310cab66b458d19d40482c7a7b",
+    "team-workbench": "78fece66aa8aac79af679a6d7b7cafae1f89125e286f7401067756da3c5d5525",
+    "extension-showcase": "6eb9c90d56445517f2d01cdb3d2a69c9f062c17618ee29238486fa7e2f6d9fc9",
+    "expense-workflow": "e6d29ebface2072103287b58d9b574556a72c06135e446c48685769e70004095",
+    "submission-recovery": "a6bb5718f77e5111099103009b0451257c887141ad054b467fe79b0bee61eea4"
+  }
+}

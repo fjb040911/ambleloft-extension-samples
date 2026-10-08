@@ -1,0 +1,57 @@
+# Task conversations
+
+**English** · [简体中文](README.zh-CN.md)
+
+Create a draft in an authorized project and open it by ID. Creation never runs a model.
+
+## Run
+
+Requires Node.js ≥22.13 and an Ambleloft host with extension support. SDK/CLI are installed from npm, pinned to `0.1.0-alpha.7`; no adjacent source repository is needed.
+
+```sh
+cd conversation-launcher
+npm ci
+npm run build
+npm run validate
+npm test
+npm run pack
+```
+
+In host **Settings → Extensions → Install**, choose `dist/conversation-launcher.amble-extension`, trust it, grant the declared permissions, and open its home where available. Extension ID: `samples.conversation-launcher`.
+
+## Walkthrough
+
+Enter a title and initial prompt, create a draft, and choose a project. Copy the returned id into the existing conversation ID field, then open it. Creating a draft does not run a model; send it yourself in the host.
+
+## Screenshots and verification
+
+Captured from the real Ambleloft desktop on macOS with an isolated profile, fictional data, local demo services, and a deterministic fixture model. Extension page images come from actual isolated WebContents; forms and messages come from the host window. These are not design mockups or browser mocks.
+
+![Extension home running in the real host.](screenshots/01-home.png)
+
+Extension home running in the real host.
+
+![Stable ID of the created draft; no model has run.](screenshots/02-draft.png)
+
+Stable ID of the created draft; no model has run.
+
+[Full verification and remaining gaps](../docs/verification.md). The sample remains preview; screenshots do not imply all platforms and failure modes have passed.
+
+## Permissions and implementation
+
+`projects.read, conversations.create, conversations.open`
+
+Project permissions are scoped to the user-selected project; storage/configuration/secrets are extension-local. Declaration is not a grant. Node uses the public SDK; pages use the host bridge. MCP Apps has a separate task UI protocol.
+
+| Operation | Handler | Effect | Caller |
+| --- | --- | --- | --- |
+| `samples.conversation-launcher.create` | `create` | write | page |
+| `samples.conversation-launcher.open` | `open` | read | page |
+
+## Errors, limits, and cleanup
+
+Cancelling confirmation prevents dispatch. Cancelling waiting is not rollback; reconcile unknown results before any new write. Refused permissions must fail; new permissions require a new user grant.
+
+These are alpha previews. Form YAML and some demo controls are Chinese; bilingual docs do not imply automatic form localization. Enterprise authentication needs a deployed IdP. Messages are local; remind is not an OS delivery receipt.
+
+Disable/uninstall in extension settings and choose whether to retain data. Stop standalone services with Ctrl+C. Delete only your own demo SQLite files after stopping the service; never remove a real user profile.

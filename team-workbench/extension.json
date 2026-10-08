@@ -1,0 +1,1176 @@
+{
+  "$schema": "./node_modules/@ambleloft/extension-sdk/extension.schema.json",
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "team-workbench",
+  "version": "0.2.0",
+  "displayName": "团队工作台",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "projects.read",
+      "scope": "project"
+    },
+    {
+      "capability": "projects.path.read",
+      "scope": "project"
+    },
+    {
+      "capability": "conversations.create",
+      "scope": "project"
+    },
+    {
+      "capability": "conversations.open",
+      "scope": "project"
+    },
+    {
+      "capability": "storage",
+      "scope": "self"
+    },
+    {
+      "capability": "configuration",
+      "scope": "self"
+    },
+    {
+      "capability": "secrets",
+      "scope": "self"
+    }
+  ],
+  "contextKeys": [
+    {
+      "key": "ext.samples.team-workbench.linked",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    },
+    "commands": [
+      {
+        "id": "samples.team-workbench.open",
+        "title": "%open%",
+        "action": "openHome"
+      },
+      {
+        "id": "samples.team-workbench.linkedHome",
+        "title": "%linkedHome%",
+        "action": "openHome",
+        "when": "ext.samples.team-workbench.linked"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "id": "samples.team-workbench.status",
+      "handler": "status",
+      "title": "%op.status%",
+      "description": "%op.status.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.team-workbench.addTask",
+      "handler": "addTask",
+      "title": "%op.addTask%",
+      "description": "%op.addTask.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        },
+        "required": ["projectId", "title"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.removeTask",
+      "handler": "removeTask",
+      "title": "%op.removeTask%",
+      "description": "%op.removeTask.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": false,
+        "impacts": ["destructive"]
+      }
+    },
+    {
+      "id": "samples.team-workbench.createChat",
+      "handler": "createChat",
+      "title": "%op.createChat%",
+      "description": "%op.createChat.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "required": ["projectId", "taskId", "title", "prompt"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "conversations.create", "storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.openChat",
+      "handler": "openChat",
+      "title": "%op.openChat%",
+      "description": "%op.openChat.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "conversationId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId", "conversationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "conversations.open", "storage"]
+    },
+    {
+      "id": "samples.team-workbench.unlinkChat",
+      "handler": "unlinkChat",
+      "title": "%op.unlinkChat%",
+      "description": "%op.unlinkChat.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "conversationId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId", "conversationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": false,
+        "impacts": ["destructive"]
+      }
+    },
+    {
+      "id": "samples.team-workbench.acknowledgeUnknown",
+      "handler": "acknowledgeUnknown",
+      "title": "%op.acknowledgeUnknown%",
+      "description": "%op.acknowledgeUnknown.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.summary",
+      "handler": "summary",
+      "title": "%op.summary%",
+      "description": "%op.summary.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "enablement": "ext.samples.team-workbench.linked"
+    },
+    {
+      "id": "samples.team-workbench.projectPath",
+      "handler": "projectPath",
+      "title": "%op.projectPath%",
+      "description": "%op.projectPath.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.path.read"]
+    },
+    {
+      "id": "samples.team-workbench.publish",
+      "handler": "publish",
+      "title": "%op.publish%",
+      "description": "%op.publish.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "required": ["eventKey", "title", "body"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.query",
+      "handler": "query",
+      "title": "%op.query%",
+      "description": "%op.query.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.team-workbench.update",
+      "handler": "update",
+      "title": "%op.update%",
+      "description": "%op.update.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "required": ["id", "revision", "body"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.withdraw",
+      "handler": "withdraw",
+      "title": "%op.withdraw%",
+      "description": "%op.withdraw.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["id", "revision"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.preferences",
+      "handler": "preferences",
+      "title": "%op.preferences%",
+      "description": "%op.preferences.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.team-workbench.connection",
+      "handler": "connection",
+      "title": "%op.connection%",
+      "description": "%op.connection.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "connected": {
+            "type": "boolean"
+          }
+        },
+        "required": ["connected"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration", "storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.secretStatus",
+      "handler": "secretStatus",
+      "title": "%op.secretStatus%",
+      "description": "%op.secretStatus.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["secrets"]
+    },
+    {
+      "id": "samples.team-workbench.secretDelete",
+      "handler": "secretDelete",
+      "title": "%op.secretDelete%",
+      "description": "%op.secretDelete.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["secrets"],
+      "risk": {
+        "reversible": false,
+        "impacts": ["destructive"]
+      }
+    },
+    {
+      "id": "samples.team-workbench.kvCheck",
+      "handler": "kvCheck",
+      "title": "%op.kvCheck%",
+      "description": "%op.kvCheck.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.delay",
+      "handler": "delay",
+      "title": "%op.delay%",
+      "description": "%op.delay.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120000
+          },
+          "eventKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["ms", "eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      },
+      "timeoutMs": 1000
+    },
+    {
+      "id": "samples.team-workbench.messageProbe",
+      "handler": "messageProbe",
+      "title": "%op.messageProbe%",
+      "description": "%op.messageProbe.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": ["publish", "update"]
+          },
+          "payload": {
+            "type": "string",
+            "maxLength": 90000
+          }
+        },
+        "required": ["method", "payload"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.resourceProbe",
+      "handler": "resourceProbe",
+      "title": "%op.resourceProbe%",
+      "description": "%op.resourceProbe.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conversationId": {
+            "type": "string"
+          }
+        },
+        "required": ["projectId", "conversationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["conversations.open"]
+    },
+    {
+      "id": "samples.team-workbench.listenerProbe",
+      "handler": "listenerProbe",
+      "title": "%op.listenerProbe%",
+      "description": "%op.listenerProbe.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": ["start", "dispose", "status"]
+          }
+        },
+        "required": ["action"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.crashProbe",
+      "handler": "crashProbe",
+      "title": "%op.crashProbe%",
+      "description": "%op.crashProbe.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.team-workbench.rpcProbe",
+      "handler": "rpcProbe",
+      "title": "%op.rpcProbe%",
+      "description": "%op.rpcProbe.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    }
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "configuration": {
+    "type": "object",
+    "description": "%config.description%",
+    "properties": {
+      "serviceUrl": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "%config.serviceUrl%"
+      },
+      "connected": {
+        "type": "boolean",
+        "description": "%config.connected%"
+      },
+      "density": {
+        "type": "string",
+        "enum": ["comfortable", "compact"],
+        "description": "%config.density%"
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "%config.limit%"
+      },
+      "note": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "%config.note%"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 10,
+        "description": "%config.tags%"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["limit"]
+  }
+}

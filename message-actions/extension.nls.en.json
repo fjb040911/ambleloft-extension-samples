@@ -1,0 +1,4 @@
+{
+  "name": "Message actions",
+  "description": "Submit from a notification and reconcile its result without repeating a write."
+}

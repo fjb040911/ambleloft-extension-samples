@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-10-08T08:44:50.539597+00:00",
+  "build": "passed",
+  "manifestValidation": "passed",
+  "archiveValidation": "passed",
+  "tests": 30,
+  "screenshots": 50,
+  "artifacts": [
+    {
+      "path": "cancellation-and-errors/dist/cancellation-and-errors.amble-extension",
+      "bytes": 231753,
+      "sha256": "b0254059664f734b1b9af2a142b6bdef8310b5e54a1020d55b9e51f8eee60b3d"
+    },
+    {
+      "path": "configuration/dist/configuration.amble-extension",
+      "bytes": 122759,
+      "sha256": "47b3102433284c5c32948ad7bd75448dbeee3d2c255497a9c0d9d82bf10c3017"
+    },
+    {
+      "path": "contextual-entry/dist/contextual-entry.amble-extension",
+      "bytes": 208042,
+      "sha256": "812594dfc53fc7cc1d386644b7bf284bbec38fbff9471f8f23b48e7a0071a75c"
+    },
+    {
+      "path": "conversation-launcher/dist/conversation-launcher.amble-extension",
+      "bytes": 312737,
+      "sha256": "3283d67d1bd1ccc24060c10a026882733bc27b40c288bea87019394c38c9dadc"
+    },
+    {
+      "path": "declarative-intake/dist/declarative-intake.amble-extension",
+      "bytes": 338361,
+      "sha256": "91c1d88612b412a0752db6638d8a6ab0ab058228f43560fc39a2affc1992c4ad"
+    },
+    {
+      "path": "enterprise-auth/dist/enterprise-auth.amble-extension",
+      "bytes": 146089,
+      "sha256": "c85937b6062a150af4ce87ae77c4e625756707a1110f56c7c98fc11c104d6bd8"
+    },
+    {
+      "path": "expense-workflow/dist/expense-workflow.amble-extension",
+      "bytes": 2026042,
+      "sha256": "7d282ceb7d0ff121b59f022605164d498d9f4e3e693a7ee9e43a38fa49822e01"
+    },
+    {
+      "path": "extension-home/dist/extension-home.amble-extension",
+      "bytes": 129543,
+      "sha256": "6306979ec900301c54bb8c033d3b86c4117b272f8810da412cf403ebec279207"
+    },
+    {
+      "path": "extension-icons/dist/extension-icons.amble-extension",
+      "bytes": 269643,
+      "sha256": "44e36599225cccc48d741574c17eaed5537bd1f51ed878e8cb13e1d5190e8d1f"
+    },
+    {
+      "path": "extension-showcase/dist/extension-showcase.amble-extension",
+      "bytes": 263463,
+      "sha256": "5977f7f3d5f917d266cbf031bd6373e9bda379663f03b5f199ac1263220153e9"
+    },
+    {
+      "path": "hello-operation/dist/hello-operation.amble-extension",
+      "bytes": 121275,
+      "sha256": "2ae58a33cea83b7724b06115f3907021fc7e2b9d849e09489401f45cfadabfed"
+    },
+    {
+      "path": "local-messages/dist/local-messages.amble-extension",
+      "bytes": 348007,
+      "sha256": "09da6c68a7a7476e57f4df223c45ee3bbfcbd637b5d1ea559820a916e4899a35"
+    },
+    {
+      "path": "mcp-apps-card/dist/mcp-apps-card.amble-extension",
+      "bytes": 485039,
+      "sha256": "3b7ab0c85674839ca1ffbd964829a51ec6949b5b5458365febe95cf71b90a0bd"
+    },
+    {
+      "path": "message-actions/dist/message-actions.amble-extension",
+      "bytes": 720573,
+      "sha256": "f4398a92809496b1ffb0f241de964a838096ce9f8aa8a06824435fd8010f1b51"
+    },
+    {
+      "path": "npm-data-transform/dist/npm-data-transform.amble-extension",
+      "bytes": 181951,
+      "sha256": "11ad33d64b7e22b4077f0b5777d2ce5ee1b12d6ff3cba826549ac964bbb16abe"
+    },
+    {
+      "path": "operation-confirmation/dist/operation-confirmation.amble-extension",
+      "bytes": 227429,
+      "sha256": "d72b8664f067d07a5fff056a7df0ae07974e1379e362ba8d271970994c93a112"
+    },
+    {
+      "path": "project-card/dist/project-card.amble-extension",
+      "bytes": 148953,
+      "sha256": "5069e05e23e825f3ee52a5dcb8b9673420ac6efa81c73591b7dae88b3eae1dbb"
+    },
+    {
+      "path": "secret-input/dist/secret-input.amble-extension",
+      "bytes": 121049,
+      "sha256": "eb2155c2867df6cdbe268ae4174330888cb3a9ef8f095431b352c6e3012c8970"
+    },
+    {
+      "path": "service-events/dist/service-events.amble-extension",
+      "bytes": 269676,
+      "sha256": "3cc9ba3dcec5e13f27af45203b0e130ae4313f217f6a56792bf8b76837b97d1b"
+    },
+    {
+      "path": "storage-notebook/dist/storage-notebook.amble-extension",
+      "bytes": 253043,
+      "sha256": "fa790f325e5159d888ea3f9862b8c60639fddd419b03cc988b0a52919a17f55f"
+    },
+    {
+      "path": "submission-recovery/dist/submission-recovery.amble-extension",
+      "bytes": 1366224,
+      "sha256": "a3832f4fe739bda51919357ff5fb3d54f20df65746bb11c270a5a6a9f97bb53f"
+    },
+    {
+      "path": "team-workbench/dist/team-workbench.amble-extension",
+      "bytes": 216114,
+      "sha256": "88397691d8e3ac71e4282e2e5faeba883b979b341a056bf7e2eeeb42dc6b04cf"
+    },
+    {
+      "path": "theme-and-i18n/dist/theme-and-i18n.amble-extension",
+      "bytes": 335908,
+      "sha256": "9363daf2920fef844921e22034115166f97ca0417db243aa98ce97a4f6a5fb24"
+    }
+  ]
+}

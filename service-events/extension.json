@@ -1,0 +1,165 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "service-events",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "configuration",
+      "scope": "self"
+    },
+    {
+      "capability": "storage",
+      "scope": "self"
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.service-events.connect",
+      "handler": "connect",
+      "title": "连接推送服务",
+      "description": "连接推送服务",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "attempt": {
+            "type": "integer"
+          },
+          "received": {
+            "type": "integer"
+          },
+          "lastEvent": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "lastError": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["state", "attempt", "received", "lastEvent", "lastError"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration", "storage"]
+    },
+    {
+      "id": "samples.service-events.disconnect",
+      "handler": "disconnect",
+      "title": "断开推送",
+      "description": "断开推送",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "attempt": {
+            "type": "integer"
+          },
+          "received": {
+            "type": "integer"
+          },
+          "lastEvent": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "lastError": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["state", "attempt", "received", "lastEvent", "lastError"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.service-events.status",
+      "handler": "status",
+      "title": "查看连接状态",
+      "description": "查看连接状态",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "attempt": {
+            "type": "integer"
+          },
+          "received": {
+            "type": "integer"
+          },
+          "lastEvent": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "lastError": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["state", "attempt", "received", "lastEvent", "lastError"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ],
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "serviceUrl": {
+        "type": "string",
+        "maxLength": 2000
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  }
+}

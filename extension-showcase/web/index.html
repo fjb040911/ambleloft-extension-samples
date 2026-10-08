@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>扩展能力体验馆</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="eyebrow">LOCAL WORKSPACE</span>
+        <h1 data-text="title"></h1>
+        <p data-text="intro"></p>
+      </header>
+      <section class="tour" aria-label="体验指南">
+        <h2>先选一个体验 / Start here</h2>
+        <p>无需企业账号。项目、通知和安全存储可直接在此体验；聊天表单和卡片由宿主 Agent 展示。</p>
+        <ol>
+          <li>
+            <a href="#workspace-tour">项目与聊天</a>：选择本地项目、创建草稿，再继续同一个聊天。
+          </li>
+          <li>
+            <a href="#messages-tour">本地通知</a>：发布后到消息中心查看，重复发布同一事件观察去重。
+          </li>
+          <li>聊天里输入：<code>用扩展能力体验馆展示团队计划信息收集表单</code></li>
+          <li>聊天里输入：<code>用扩展能力体验馆的任务卡片登记去上海的差旅，金额 1200 元</code></li>
+          <li>配置本机报销服务后输入：<code>用扩展能力体验馆报销差旅费</code></li>
+        </ol>
+        <p>完整介绍与服务启动步骤：设置 → 扩展 → 扩展能力体验馆 → 详情（README.md）。</p>
+        <details>
+          <summary>English guide</summary>
+          <p>
+            Link a local project and create a conversation below. Try local notifications without an
+            account. Ask the Agent to present this extension's team-intake form or call cardRender
+            for an interactive card. The travel form needs the optional local expense service. Read
+            the installed README in extension details.
+          </p>
+        </details>
+      </section>
+      <div id="status" role="status" aria-live="polite"></div>
+      <div class="grid">
+        <section class="wide" id="workspace-tour">
+          <h2 data-text="projects"></h2>
+          <p id="empty" data-text="empty"></p>
+          <div class="row">
+            <label
+              ><span data-text="taskTitle"></span
+              ><input id="task-title" maxlength="120" value="团队周报 · Weekly review" /></label
+            ><button id="add" class="primary" data-text="add"></button>
+          </div>
+          <label
+            ><span data-text="tasks"></span
+            ><select id="tasks"></select
+          ></label>
+          <p id="project"></p>
+          <div class="row">
+            <button id="summary" data-text="summary"></button
+            ><button id="remove-task" data-text="removeTask"></button>
+          </div>
+          <div id="chat-form">
+            <h3 data-text="newChat"></h3>
+            <label
+              ><span data-text="chatTitle"></span
+              ><input id="chat-title" maxlength="120" value="下一步计划 · Next steps" /></label
+            ><label
+              ><span data-text="prompt"></span
+              ><textarea id="prompt" maxlength="20000">
+请整理本地团队任务的下一步。</textarea
+              ></label
+            ><button id="create" class="primary" data-text="create"></button>
+            <p data-text="createHint"></p>
+            <p id="pending" role="alert" hidden data-text="pending"></p>
+            <button id="ack" hidden data-text="ack"></button>
+            <h3 data-text="linkedChats"></h3>
+            <label
+              ><span data-text="selectChat"></span
+              ><select id="chats"></select
+            ></label>
+            <div class="row">
+              <button id="open" data-text="open"></button
+              ><button id="unlink" data-text="unlink"></button>
+            </div>
+            <p data-text="archiveHint"></p>
+          </div>
+        </section>
+        <section id="messages-tour">
+          <h2 data-text="notices"></h2>
+          <label
+            ><span data-text="event"></span
+            ><input id="event" value="weekly:ready:1" maxlength="200" /></label
+          ><label
+            ><span data-text="noticeTitle"></span
+            ><input
+              id="notice-title"
+              value="团队任务已准备 · Team task ready"
+              maxlength="120" /></label
+          ><label
+            ><span data-text="body"></span
+            ><textarea id="body" maxlength="20000">任务说明 · Task details</textarea>
+          </label>
+          <div class="row">
+            <button id="publish" class="primary" data-text="publish"></button
+            ><button id="query" data-text="query"></button
+            ><button id="update" data-text="update"></button
+            ><button id="withdraw" data-text="withdraw"></button
+            ><button id="preferences" data-text="preferences"></button>
+          </div>
+          <p id="notice-result" role="status"></p>
+          <p data-text="noticeHint"></p>
+        </section>
+        <section>
+          <h2 data-text="service"></h2>
+          <p id="connection"></p>
+          <div class="row">
+            <button id="connect" data-text="connect"></button
+            ><button id="disconnect" data-text="disconnect"></button>
+          </div>
+          <p data-text="serviceHint"></p>
+          <h3 data-text="settings"></h3>
+          <p data-text="settingsHint"></p>
+          <p id="effective"></p>
+          <p data-text="account"></p>
+        </section>
+        <section class="wide" id="actions-auth">
+          <h2>消息动作与企业连接 / Actions &amp; enterprise</h2>
+          <p>
+            先运行 npm run actions:service，并在设置填写 actionServiceUrl。认证单独配置，详见
+            README；本地消息动作无需账号。
+          </p>
+          <label>事件标识 / Event key<input id="action-event" value="action:demo:1" /></label
+          ><label
+            >服务行为 / Service mode<select id="action-mode">
+              <option value="accepted">已受理，等待业务完成 / Accepted</option>
+              <option value="unknown">服务完成但断开响应 / Unknown response</option>
+            </select></label
+          >
+          <div class="row">
+            <button id="action-publish">发布操作通知 / Publish action</button
+            ><button id="action-records">刷新执行记录 / Refresh records</button>
+          </div>
+          <p>发布后在宿主消息中心点击“提交任务”，并确认写操作。未知结果不会自动重放。</p>
+          <label>执行记录 / Invocation<select id="action-invocations"></select></label
+          ><button id="action-reconcile">查询业务结果并回报 / Reconcile</button>
+          <h3>企业认证 / Enterprise authentication</h3>
+          <p>
+            默认 api.example.com
+            是待管理员替换的声明，不是可用业务服务。只有明确连接操作会打开宿主选择器和系统浏览器。
+          </p>
+          <div class="row">
+            <button id="auth-status">静默查询 / Session</button
+            ><button id="auth-connect">连接企业账号 / Connect</button
+            ><button id="auth-disconnect">断开本扩展 / Disconnect</button>
+          </div>
+          <label>资源内路径 / Resource path<input id="auth-path" value="/tasks" /></label
+          ><button id="auth-request">查询业务 API / Request</button>
+          <pre id="actions-receipt" aria-live="polite"></pre>
+        </section>
+        <section class="wide">
+          <h2 data-text="runtime"></h2>
+          <p id="runtime"></p>
+          <button id="refresh" data-text="refresh"></button>
+          <details>
+            <summary data-text="developer"></summary>
+            <p data-text="safeHint"></p>
+            <div class="row">
+              <button id="secret-input" data-text="secretInput"></button
+              ><button id="secret-status" data-text="secretStatus"></button
+              ><button id="secret-delete" data-text="secretDelete"></button
+              ><button id="kv" data-text="kv"></button><button id="path" data-text="path"></button
+              ><button id="cancel" data-text="cancel"></button>
+            </div>
+            <pre id="receipt"></pre>
+          </details>
+        </section>
+      </div>
+      <footer data-text="footer"></footer>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

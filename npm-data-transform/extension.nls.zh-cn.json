@@ -1,0 +1,4 @@
+{
+  "name": "CSV 数据转换",
+  "description": "粘贴 CSV，使用打包的 npm 依赖解析数据。"
+}

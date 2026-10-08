@@ -1,0 +1,26 @@
+{
+  "name": "ambleloft-extension-samples",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "setup": "node scripts/run-all.mjs install",
+    "build": "node scripts/run-all.mjs build",
+    "validate": "node scripts/run-all.mjs validate",
+    "pack": "node scripts/run-all.mjs pack",
+    "test": "node scripts/run-all.mjs test && node scripts/check-catalog.mjs",
+    "test:desktop": "node scripts/desktop.mjs",
+    "format": "prettier --write \"**/*.{cjs,mjs,js,ts,json,html,css}\"",
+    "validate:archives": "node scripts/run-all.mjs validate:archive"
+  },
+  "devDependencies": {
+    "@ambleloft/extension-cli": "0.1.0-alpha.7",
+    "@ambleloft/extension-sdk": "0.1.0-alpha.7",
+    "@types/node": "22.20.0",
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "Local notebook",
+  "description": "Read the revision before saving. Concurrent edits are never silently overwritten."
+}

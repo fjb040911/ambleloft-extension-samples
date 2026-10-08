@@ -1,0 +1,4 @@
+{
+  "name": "Configuration",
+  "description": "Change settings in the host, then inspect the observed configuration."
+}

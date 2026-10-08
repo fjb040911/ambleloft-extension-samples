@@ -1,0 +1,4 @@
+{
+  "name": "Conditional entry",
+  "description": "Show an extra command after linking a task; hide it after unlinking."
+}

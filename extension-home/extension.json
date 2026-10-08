@@ -1,0 +1,49 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "extension-home",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.extension-home.list",
+      "handler": "list",
+      "title": "查看演示记录",
+      "description": "查看演示记录",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ]
+}

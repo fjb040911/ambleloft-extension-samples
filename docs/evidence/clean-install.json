@@ -1,0 +1,99 @@
+{
+  "time": "2026-10-08T08:36:52.173Z",
+  "node": "v24.14.1",
+  "mode": "outside-repository; npm ci --offline uses previously populated npm cache",
+  "samples": [
+    {
+      "id": "hello-operation",
+      "status": "passed"
+    },
+    {
+      "id": "npm-data-transform",
+      "status": "passed"
+    },
+    {
+      "id": "project-card",
+      "status": "passed"
+    },
+    {
+      "id": "extension-home",
+      "status": "passed"
+    },
+    {
+      "id": "theme-and-i18n",
+      "status": "passed"
+    },
+    {
+      "id": "extension-icons",
+      "status": "passed"
+    },
+    {
+      "id": "storage-notebook",
+      "status": "passed"
+    },
+    {
+      "id": "configuration",
+      "status": "passed"
+    },
+    {
+      "id": "secret-input",
+      "status": "passed"
+    },
+    {
+      "id": "contextual-entry",
+      "status": "passed"
+    },
+    {
+      "id": "conversation-launcher",
+      "status": "passed"
+    },
+    {
+      "id": "operation-confirmation",
+      "status": "passed"
+    },
+    {
+      "id": "cancellation-and-errors",
+      "status": "passed"
+    },
+    {
+      "id": "local-messages",
+      "status": "passed"
+    },
+    {
+      "id": "declarative-intake",
+      "status": "passed"
+    },
+    {
+      "id": "enterprise-auth",
+      "status": "passed"
+    },
+    {
+      "id": "message-actions",
+      "status": "passed"
+    },
+    {
+      "id": "service-events",
+      "status": "passed"
+    },
+    {
+      "id": "mcp-apps-card",
+      "status": "passed"
+    },
+    {
+      "id": "team-workbench",
+      "status": "passed"
+    },
+    {
+      "id": "extension-showcase",
+      "status": "passed"
+    },
+    {
+      "id": "expense-workflow",
+      "status": "passed"
+    },
+    {
+      "id": "submission-recovery",
+      "status": "passed"
+    }
+  ]
+}

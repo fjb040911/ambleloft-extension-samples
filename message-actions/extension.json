@@ -1,0 +1,173 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "message-actions",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "configuration",
+      "scope": "self"
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.message-actions.actionPublish",
+      "handler": "actionPublish",
+      "title": "发布待办消息",
+      "description": "发布待办消息",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["accepted", "unknown"]
+          }
+        },
+        "required": ["eventKey", "mode"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.message-actions.actionRecords",
+      "handler": "actionRecords",
+      "title": "查看执行记录",
+      "description": "查看执行记录",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.message-actions.actionRun",
+      "handler": "actionRun",
+      "title": "提交演示任务",
+      "description": "提交演示任务",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["accepted", "unknown"]
+          }
+        },
+        "required": ["eventKey", "mode"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.message-actions.actionReconcile",
+      "handler": "actionReconcile",
+      "title": "核实业务结果",
+      "description": "核实业务结果",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "invocationId": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["eventKey", "invocationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    }
+  ],
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "actionServiceUrl": {
+        "type": "string",
+        "maxLength": 2000
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  }
+}

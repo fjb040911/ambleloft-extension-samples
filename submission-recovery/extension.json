@@ -1,0 +1,317 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "submission-recovery",
+  "version": "0.1.0",
+  "displayName": "提交结果核实",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/main.cjs",
+  "skills": ["skills/expense"],
+  "permissions": [
+    {
+      "capability": "configuration",
+      "scope": "self"
+    }
+  ],
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "serviceUrl": {
+        "type": "string",
+        "maxLength": 200
+      }
+    },
+    "required": ["serviceUrl"],
+    "additionalProperties": false
+  },
+  "operations": [
+    {
+      "id": "samples.submission-recovery.saveDraft",
+      "handler": "saveDraft",
+      "title": "保存行程",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "enum": ["shanghai", "beijing"]
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["region", "date"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "draftId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["draftId"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.submission-recovery.lookupDraft",
+      "handler": "lookupDraft",
+      "title": "核实行程",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "submissionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["submissionId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["succeeded", "notExecuted", "unknown"]
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "draftId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "required": ["draftId"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["status"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.submission-recovery.submitExpense",
+      "handler": "submitExpense",
+      "title": "提交报销",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "draftId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amount": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "remark": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "confirmed": {
+            "type": "boolean",
+            "enum": [true]
+          }
+        },
+        "required": ["draftId", "amount", "remark", "confirmed"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "expenseId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "type": "string",
+            "enum": ["submitted"]
+          }
+        },
+        "required": ["expenseId", "status"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.submission-recovery.lookupExpense",
+      "handler": "lookupExpense",
+      "title": "核实报销",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "submissionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["submissionId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["succeeded", "notExecuted", "unknown"]
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "expenseId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "type": "string",
+                "enum": ["submitted"]
+              }
+            },
+            "required": ["expenseId", "status"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["status"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.submission-recovery.status",
+      "handler": "status",
+      "title": "检查演示服务",
+      "description": "检查演示服务",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "connected": {
+            "type": "boolean"
+          },
+          "mode": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "version": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["connected", "mode", "version"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.submission-recovery.records",
+      "handler": "records",
+      "title": "查询报销记录",
+      "description": "查询报销记录",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "maxItems": 50,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 150000
+                },
+                "amount": {
+                  "type": "string",
+                  "maxLength": 150000
+                },
+                "remark": {
+                  "type": "string",
+                  "maxLength": 150000
+                },
+                "region": {
+                  "type": "string",
+                  "maxLength": 150000
+                },
+                "date": {
+                  "type": "string",
+                  "maxLength": 150000
+                },
+                "status": {
+                  "type": "string",
+                  "maxLength": 150000
+                }
+              },
+              "required": ["id", "amount", "remark", "region", "date", "status"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["records"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "差旅报销助手",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "icon": {
+    "light": "assets/icon-light.png",
+    "dark": "assets/icon-dark.png"
+  }
+}

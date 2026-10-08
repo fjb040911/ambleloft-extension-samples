@@ -1,0 +1,4 @@
+{
+  "name": "Secure input",
+  "description": "Enter a fictional secret using the host. This page sees only whether it exists."
+}

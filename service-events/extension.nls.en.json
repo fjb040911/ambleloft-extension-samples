@@ -1,0 +1,4 @@
+{
+  "name": "Business event push",
+  "description": "Connect to a local SSE service and publish versioned progress notifications."
+}

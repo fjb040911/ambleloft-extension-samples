@@ -1,0 +1,70 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "configuration",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "configuration",
+      "scope": "self"
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.configuration.read",
+      "handler": "read",
+      "title": "读取配置",
+      "description": "读取配置",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    }
+  ],
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "note": {
+        "type": "string",
+        "maxLength": 2000
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  }
+}

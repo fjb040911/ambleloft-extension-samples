@@ -1,0 +1,4 @@
+{
+  "name": "CSV to JSON",
+  "description": "Parse pasted CSV using a bundled npm dependency."
+}

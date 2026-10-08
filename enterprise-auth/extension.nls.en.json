@@ -1,0 +1,4 @@
+{
+  "name": "Enterprise service connection",
+  "description": "Connect through the host and read a declared HTTPS resource."
+}

@@ -1,0 +1,59 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "hello-operation",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.hello-operation.count",
+      "handler": "count",
+      "title": "统计文本",
+      "description": "统计文本",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["text"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "characters": {
+            "type": "integer"
+          },
+          "words": {
+            "type": "integer"
+          },
+          "lines": {
+            "type": "integer"
+          }
+        },
+        "required": ["characters", "words", "lines"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ]
+}

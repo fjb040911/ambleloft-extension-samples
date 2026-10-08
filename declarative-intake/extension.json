@@ -1,0 +1,50 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "declarative-intake",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.declarative-intake.guide",
+      "handler": "guide",
+      "title": "查看表单说明",
+      "description": "查看表单说明",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ],
+  "skills": ["skills/intake"]
+}

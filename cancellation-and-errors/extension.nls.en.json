@@ -1,0 +1,4 @@
+{
+  "name": "Cancellation and errors",
+  "description": "Start a slow read and cancel waiting. Cancellation is not a business rollback."
+}

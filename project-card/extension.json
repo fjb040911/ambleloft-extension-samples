@@ -1,0 +1,103 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "project-card",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "projects.read",
+      "scope": "project"
+    },
+    {
+      "capability": "projects.path.read",
+      "scope": "project"
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.project-card.describe",
+      "handler": "describe",
+      "title": "读取项目",
+      "description": "读取项目",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["projectId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["id", "name", "description"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read"]
+    },
+    {
+      "id": "samples.project-card.path",
+      "handler": "path",
+      "title": "读取项目目录",
+      "description": "读取项目目录",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["projectId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["path"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.path.read"]
+    }
+  ]
+}

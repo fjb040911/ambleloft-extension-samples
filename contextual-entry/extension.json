@@ -1,0 +1,68 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "contextual-entry",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    },
+    "commands": [
+      {
+        "id": "samples.contextual-entry.linked",
+        "title": "已关联任务 / Linked task",
+        "action": "openHome",
+        "when": "ext.samples.contextual-entry.linked"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "id": "samples.contextual-entry.link",
+      "handler": "link",
+      "title": "关联任务",
+      "description": "关联任务",
+      "exposeTo": ["page", "agent"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "linked": {
+            "type": "boolean"
+          }
+        },
+        "required": ["linked"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ],
+  "contextKeys": [
+    {
+      "key": "ext.samples.contextual-entry.linked",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}

@@ -1,0 +1,1485 @@
+{
+  "$schema": "./node_modules/@ambleloft/extension-sdk/extension.schema.json",
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "extension-showcase",
+  "version": "0.3.1",
+  "displayName": "扩展能力体验馆",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "projects.read",
+      "scope": "project"
+    },
+    {
+      "capability": "projects.path.read",
+      "scope": "project"
+    },
+    {
+      "capability": "conversations.create",
+      "scope": "project"
+    },
+    {
+      "capability": "conversations.open",
+      "scope": "project"
+    },
+    {
+      "capability": "storage",
+      "scope": "self"
+    },
+    {
+      "capability": "configuration",
+      "scope": "self"
+    },
+    {
+      "capability": "secrets",
+      "scope": "self"
+    }
+  ],
+  "contextKeys": [
+    {
+      "key": "ext.samples.extension-showcase.linked",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    },
+    "commands": [
+      {
+        "id": "samples.extension-showcase.open",
+        "title": "%open%",
+        "action": "openHome"
+      },
+      {
+        "id": "samples.extension-showcase.linkedHome",
+        "title": "%linkedHome%",
+        "action": "openHome",
+        "when": "ext.samples.extension-showcase.linked"
+      }
+    ],
+    "mcpApps": [
+      {
+        "uri": "ui://samples.extension-showcase/travel",
+        "title": "差旅记录",
+        "entry": "form.html",
+        "mimeType": "text/html;profile=mcp-app"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "id": "samples.extension-showcase.status",
+      "handler": "status",
+      "title": "%op.status%",
+      "description": "%op.status.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.extension-showcase.addTask",
+      "handler": "addTask",
+      "title": "%op.addTask%",
+      "description": "%op.addTask.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        },
+        "required": ["projectId", "title"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.removeTask",
+      "handler": "removeTask",
+      "title": "%op.removeTask%",
+      "description": "%op.removeTask.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": false,
+        "impacts": ["destructive"]
+      }
+    },
+    {
+      "id": "samples.extension-showcase.createChat",
+      "handler": "createChat",
+      "title": "%op.createChat%",
+      "description": "%op.createChat.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "required": ["projectId", "taskId", "title", "prompt"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "conversations.create", "storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.openChat",
+      "handler": "openChat",
+      "title": "%op.openChat%",
+      "description": "%op.openChat.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "conversationId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId", "conversationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "conversations.open", "storage"]
+    },
+    {
+      "id": "samples.extension-showcase.unlinkChat",
+      "handler": "unlinkChat",
+      "title": "%op.unlinkChat%",
+      "description": "%op.unlinkChat.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "conversationId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId", "conversationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": false,
+        "impacts": ["destructive"]
+      }
+    },
+    {
+      "id": "samples.extension-showcase.acknowledgeUnknown",
+      "handler": "acknowledgeUnknown",
+      "title": "%op.acknowledgeUnknown%",
+      "description": "%op.acknowledgeUnknown.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.summary",
+      "handler": "summary",
+      "title": "%op.summary%",
+      "description": "%op.summary.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "taskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId", "taskId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.read", "storage"],
+      "enablement": "ext.samples.extension-showcase.linked"
+    },
+    {
+      "id": "samples.extension-showcase.projectPath",
+      "handler": "projectPath",
+      "title": "%op.projectPath%",
+      "description": "%op.projectPath.description%",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["projectId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["projects.path.read"]
+    },
+    {
+      "id": "samples.extension-showcase.publish",
+      "handler": "publish",
+      "title": "%op.publish%",
+      "description": "%op.publish.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "required": ["eventKey", "title", "body"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.query",
+      "handler": "query",
+      "title": "%op.query%",
+      "description": "%op.query.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": ["eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.extension-showcase.update",
+      "handler": "update",
+      "title": "%op.update%",
+      "description": "%op.update.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 20000
+          }
+        },
+        "required": ["id", "revision", "body"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.withdraw",
+      "handler": "withdraw",
+      "title": "%op.withdraw%",
+      "description": "%op.withdraw.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": ["id", "revision"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.preferences",
+      "handler": "preferences",
+      "title": "%op.preferences%",
+      "description": "%op.preferences.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.extension-showcase.connection",
+      "handler": "connection",
+      "title": "%op.connection%",
+      "description": "%op.connection.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "connected": {
+            "type": "boolean"
+          }
+        },
+        "required": ["connected"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration", "storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.secretStatus",
+      "handler": "secretStatus",
+      "title": "%op.secretStatus%",
+      "description": "%op.secretStatus.description%",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["secrets"]
+    },
+    {
+      "id": "samples.extension-showcase.secretDelete",
+      "handler": "secretDelete",
+      "title": "%op.secretDelete%",
+      "description": "%op.secretDelete.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["secrets"],
+      "risk": {
+        "reversible": false,
+        "impacts": ["destructive"]
+      }
+    },
+    {
+      "id": "samples.extension-showcase.kvCheck",
+      "handler": "kvCheck",
+      "title": "%op.kvCheck%",
+      "description": "%op.kvCheck.description%",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["success", "data", "code"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["storage"],
+      "risk": {
+        "reversible": true,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.saveDraft",
+      "handler": "saveDraft",
+      "title": "保存行程",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "enum": ["shanghai", "beijing"]
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["region", "date"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "draftId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["draftId"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.extension-showcase.lookupDraft",
+      "handler": "lookupDraft",
+      "title": "核实行程",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "submissionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["submissionId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["succeeded", "notExecuted", "unknown"]
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "draftId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "required": ["draftId"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["status"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.extension-showcase.submitExpense",
+      "handler": "submitExpense",
+      "title": "提交报销",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "draftId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amount": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "remark": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "confirmed": {
+            "type": "boolean",
+            "enum": [true]
+          }
+        },
+        "required": ["draftId", "amount", "remark", "confirmed"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "expenseId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "type": "string",
+            "enum": ["submitted"]
+          }
+        },
+        "required": ["expenseId", "status"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.extension-showcase.lookupExpense",
+      "handler": "lookupExpense",
+      "title": "核实报销",
+      "description": "本机模拟报销服务操作",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "submissionId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": ["submissionId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["succeeded", "notExecuted", "unknown"]
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "expenseId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "type": "string",
+                "enum": ["submitted"]
+              }
+            },
+            "required": ["expenseId", "status"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["status"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.extension-showcase.cardRender",
+      "title": "填写差旅记录",
+      "description": "显示差旅记录表单。提供地点和金额，用户可以在任务内修改。",
+      "handler": "cardRender",
+      "exposeTo": ["agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        },
+        "required": ["destination", "amount"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        },
+        "required": ["destination", "amount"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": [],
+      "_meta": {
+        "ui": {
+          "resourceUri": "ui://samples.extension-showcase/travel"
+        }
+      }
+    },
+    {
+      "id": "samples.extension-showcase.cardSave",
+      "title": "保存差旅记录",
+      "description": "将地点和金额保存到此扩展的本地记录中，不会提交给财务系统。",
+      "handler": "cardSave",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        },
+        "required": ["destination", "amount"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "amount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000
+          }
+        },
+        "required": ["destination", "amount"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["storage"]
+    },
+    {
+      "id": "samples.extension-showcase.actionPublish",
+      "title": "actionPublish",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "actionPublish",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["accepted", "unknown"]
+          }
+        },
+        "required": ["eventKey", "mode"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000,
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.actionRun",
+      "title": "actionRun",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "actionRun",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["accepted", "unknown"]
+          }
+        },
+        "required": ["eventKey", "mode"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000,
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.extension-showcase.actionRecords",
+      "title": "actionRecords",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "actionRecords",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000
+    },
+    {
+      "id": "samples.extension-showcase.actionReconcile",
+      "title": "actionReconcile",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "actionReconcile",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string"
+          },
+          "invocationId": {
+            "type": "string"
+          }
+        },
+        "required": ["eventKey", "invocationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000,
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      },
+      "requiredPermissions": ["configuration"]
+    },
+    {
+      "id": "samples.extension-showcase.authStatus",
+      "title": "authStatus",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "authStatus",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000
+    },
+    {
+      "id": "samples.extension-showcase.authConnect",
+      "title": "authConnect",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "authConnect",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 120000
+    },
+    {
+      "id": "samples.extension-showcase.authDisconnect",
+      "title": "authDisconnect",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "authDisconnect",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000,
+      "risk": {
+        "reversible": false,
+        "impacts": []
+      }
+    },
+    {
+      "id": "samples.extension-showcase.authRequest",
+      "title": "authRequest",
+      "description": "消息动作与企业认证演示 / Message actions and authentication demo",
+      "handler": "authRequest",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": ["path"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "timeoutMs": 30000
+    }
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "configuration": {
+    "type": "object",
+    "description": "%config.description%",
+    "properties": {
+      "serviceUrl": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "%config.serviceUrl%"
+      },
+      "connected": {
+        "type": "boolean",
+        "description": "%config.connected%"
+      },
+      "density": {
+        "type": "string",
+        "enum": ["comfortable", "compact"],
+        "description": "%config.density%"
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "%config.limit%"
+      },
+      "note": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "%config.note%"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 10,
+        "description": "%config.tags%"
+      },
+      "expenseServiceUrl": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "报销模拟服务地址，例如 http://127.0.0.1:47832；与 SSE serviceUrl 独立。"
+      },
+      "actionServiceUrl": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "本地消息动作服务，例如 http://127.0.0.1:47833；启动 npm run actions:service。"
+      }
+    },
+    "additionalProperties": false,
+    "required": ["limit"]
+  },
+  "skills": ["skills/lab", "skills/expense"],
+  "icon": {
+    "light": "assets/icon-light.png",
+    "dark": "assets/icon-dark.png"
+  },
+  "authentication": {
+    "resources": [
+      {
+        "id": "business",
+        "title": "团队业务服务 / Team business service",
+        "baseUrl": "https://api.example.com/v1/",
+        "audience": "https://api.example.com/",
+        "scopes": ["tasks.read"]
+      }
+    ]
+  }
+}

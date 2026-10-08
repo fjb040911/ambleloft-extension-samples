@@ -1,0 +1,19 @@
+version: 1
+id: team-intake
+title: 团队计划信息收集
+description: 无需业务服务。提交前由宿主确认，结果发送到当前聊天。
+fields:
+  - {name: title, type: text, label: 计划名称, required: true, maxLength: 120}
+  - {name: details, type: textarea, label: 计划说明, required: true, maxLength: 2000}
+  - {name: people, type: number, label: 参与人数, integer: true, minimum: 1, maximum: 100, required: true}
+  - {name: budget, type: money, label: 预算, currency: CNY, minimum: '0.00', maximum: '1000000.00', required: true}
+  - {name: date, type: date, label: 计划日期, required: true}
+  - name: location
+    type: select
+    label: 地点
+    required: true
+    options:
+      - {label: 上海, value: shanghai}
+      - {label: 北京, value: beijing}
+  - {name: confirmed, type: checkbox, label: 我已核对计划内容, required: true}
+submit: {kind: chat, label: 确认并发送到当前聊天}

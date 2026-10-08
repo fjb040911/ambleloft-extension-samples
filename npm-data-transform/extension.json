@@ -1,0 +1,73 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "npm-data-transform",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.npm-data-transform.parse",
+      "handler": "parse",
+      "title": "解析 CSV",
+      "description": "解析 CSV",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "maxLength": 100000
+          }
+        },
+        "required": ["csv"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "rowCount": {
+            "type": "integer"
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 150000
+            },
+            "maxItems": 1000
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 150000
+              },
+              "maxItems": 1000
+            },
+            "maxItems": 1000
+          }
+        },
+        "required": ["rowCount", "columns", "rows"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ]
+}

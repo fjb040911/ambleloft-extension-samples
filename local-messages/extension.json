@@ -1,0 +1,150 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "local-messages",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.local-messages.publish",
+      "handler": "publish",
+      "title": "发布消息",
+      "description": "发布消息",
+      "exposeTo": ["page", "agent"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.local-messages.query",
+      "handler": "query",
+      "title": "查询消息",
+      "description": "查询消息",
+      "exposeTo": ["page", "agent"],
+      "effect": "read",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.local-messages.update",
+      "handler": "update",
+      "title": "更新消息",
+      "description": "更新消息",
+      "exposeTo": ["page", "agent"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    },
+    {
+      "id": "samples.local-messages.withdraw",
+      "handler": "withdraw",
+      "title": "撤回消息",
+      "description": "撤回消息",
+      "exposeTo": ["page", "agent"],
+      "effect": "write",
+      "projectScoped": false,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventKey": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["eventKey"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": []
+    }
+  ]
+}

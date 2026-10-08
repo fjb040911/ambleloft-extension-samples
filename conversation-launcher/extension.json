@@ -1,0 +1,111 @@
+{
+  "specVersion": "1.0-draft",
+  "publisher": "samples",
+  "name": "conversation-launcher",
+  "version": "0.1.0",
+  "displayName": "%name%",
+  "description": "%description%",
+  "engines": {
+    "api": "1"
+  },
+  "main": "dist/extension.cjs",
+  "permissions": [
+    {
+      "capability": "projects.read",
+      "scope": "project"
+    },
+    {
+      "capability": "conversations.create",
+      "scope": "project"
+    },
+    {
+      "capability": "conversations.open",
+      "scope": "project"
+    }
+  ],
+  "contributes": {
+    "home": {
+      "title": "%name%",
+      "webRoot": "web",
+      "entry": "index.html"
+    }
+  },
+  "operations": [
+    {
+      "id": "samples.conversation-launcher.create",
+      "handler": "create",
+      "title": "创建聊天草稿",
+      "description": "创建聊天草稿",
+      "exposeTo": ["page"],
+      "effect": "write",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "initialPrompt": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["projectId", "title", "initialPrompt"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["conversations.create"]
+    },
+    {
+      "id": "samples.conversation-launcher.open",
+      "handler": "open",
+      "title": "打开已有聊天",
+      "description": "打开已有聊天",
+      "exposeTo": ["page"],
+      "effect": "read",
+      "projectScoped": true,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "conversationId": {
+            "type": "string",
+            "maxLength": 2000
+          }
+        },
+        "required": ["projectId", "conversationId"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "maxLength": 150000
+          }
+        },
+        "required": ["data"],
+        "additionalProperties": false
+      },
+      "requiredPermissions": ["conversations.open"]
+    }
+  ]
+}

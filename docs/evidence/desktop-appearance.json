@@ -1,0 +1,257 @@
+{
+  "time": "2026-10-08T08:43:50.046Z",
+  "node": "v24.14.1",
+  "platform": "darwin",
+  "model": "local deterministic Responses fixture",
+  "profile": "temporary isolated profile",
+  "results": [
+    {
+      "sample": "hello-operation",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.hello-operation"
+      }
+    },
+    {
+      "sample": "npm-data-transform",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.npm-data-transform"
+      }
+    },
+    {
+      "sample": "project-card",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.project-card"
+      }
+    },
+    {
+      "sample": "extension-home",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.extension-home"
+      }
+    },
+    {
+      "sample": "theme-and-i18n",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.theme-and-i18n"
+      }
+    },
+    {
+      "sample": "extension-icons",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.extension-icons"
+      }
+    },
+    {
+      "sample": "storage-notebook",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.storage-notebook"
+      }
+    },
+    {
+      "sample": "configuration",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.configuration"
+      }
+    },
+    {
+      "sample": "secret-input",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.secret-input"
+      }
+    },
+    {
+      "sample": "contextual-entry",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.contextual-entry"
+      }
+    },
+    {
+      "sample": "conversation-launcher",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.conversation-launcher"
+      }
+    },
+    {
+      "sample": "operation-confirmation",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.operation-confirmation"
+      }
+    },
+    {
+      "sample": "cancellation-and-errors",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.cancellation-and-errors"
+      }
+    },
+    {
+      "sample": "local-messages",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.local-messages"
+      }
+    },
+    {
+      "sample": "declarative-intake",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.declarative-intake"
+      }
+    },
+    {
+      "sample": "enterprise-auth",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.enterprise-auth"
+      }
+    },
+    {
+      "sample": "message-actions",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.message-actions"
+      }
+    },
+    {
+      "sample": "service-events",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.service-events"
+      }
+    },
+    {
+      "sample": "mcp-apps-card",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.mcp-apps-card"
+      }
+    },
+    {
+      "sample": "team-workbench",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.team-workbench"
+      }
+    },
+    {
+      "sample": "extension-showcase",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.extension-showcase"
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.expense-workflow"
+      }
+    },
+    {
+      "sample": "submission-recovery",
+      "check": "archive-install",
+      "status": "passed",
+      "evidence": {
+        "id": "samples.submission-recovery"
+      }
+    },
+    {
+      "sample": "theme-and-i18n",
+      "check": "host-dark-and-English",
+      "status": "passed",
+      "evidence": {}
+    },
+    {
+      "sample": "extension-icons",
+      "check": "dark-packaged-icon",
+      "status": "passed",
+      "evidence": {
+        "size": 128
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "new-page-initial-locale",
+      "status": "blocked",
+      "evidence": {
+        "expected": "en",
+        "actual": "zh-CN",
+        "reason": "Host page open does not seed locale from owner context."
+      }
+    },
+    {
+      "sample": "expense-workflow",
+      "check": "English-dark-home",
+      "status": "passed",
+      "evidence": {}
+    },
+    {
+      "sample": "enterprise-auth",
+      "check": "production-idp",
+      "status": "not-run",
+      "evidence": "No enterprise IdP configured; only unconnected status UI tested."
+    }
+  ],
+  "hashes": {
+    "core/forms/service.cjs": "a2cd7bb491c7e6819e62973d98722e172a2e96e5af6a7176f35f1b1e961a445a",
+    "core/extensions/bootstrap.cjs": "9bad846c547b2b89057178a3a066e9f71f0b9f0f1e39e96b661c50130ad85a29",
+    "dist/index.html": "9016fa1e96971901161452cfb95d9fa8174e50e6364186f774db6a89a787114f",
+    "hello-operation": "2ae58a33cea83b7724b06115f3907021fc7e2b9d849e09489401f45cfadabfed",
+    "npm-data-transform": "11ad33d64b7e22b4077f0b5777d2ce5ee1b12d6ff3cba826549ac964bbb16abe",
+    "project-card": "5069e05e23e825f3ee52a5dcb8b9673420ac6efa81c73591b7dae88b3eae1dbb",
+    "extension-home": "6306979ec900301c54bb8c033d3b86c4117b272f8810da412cf403ebec279207",
+    "theme-and-i18n": "5d00e26e1261e6c8c2f74d63ddd4b66891f3e2d33796883cdc29fb8e75d43e93",
+    "extension-icons": "383bc95d400c0e2b079380c85e08abb91cf99aa23a5df75d1f52425f8057b6cd",
+    "storage-notebook": "fa790f325e5159d888ea3f9862b8c60639fddd419b03cc988b0a52919a17f55f",
+    "configuration": "47b3102433284c5c32948ad7bd75448dbeee3d2c255497a9c0d9d82bf10c3017",
+    "secret-input": "eb2155c2867df6cdbe268ae4174330888cb3a9ef8f095431b352c6e3012c8970",
+    "contextual-entry": "812594dfc53fc7cc1d386644b7bf284bbec38fbff9471f8f23b48e7a0071a75c",
+    "conversation-launcher": "3283d67d1bd1ccc24060c10a026882733bc27b40c288bea87019394c38c9dadc",
+    "operation-confirmation": "d72b8664f067d07a5fff056a7df0ae07974e1379e362ba8d271970994c93a112",
+    "cancellation-and-errors": "b0254059664f734b1b9af2a142b6bdef8310b5e54a1020d55b9e51f8eee60b3d",
+    "local-messages": "09da6c68a7a7476e57f4df223c45ee3bbfcbd637b5d1ea559820a916e4899a35",
+    "declarative-intake": "91c1d88612b412a0752db6638d8a6ab0ab058228f43560fc39a2affc1992c4ad",
+    "enterprise-auth": "c85937b6062a150af4ce87ae77c4e625756707a1110f56c7c98fc11c104d6bd8",
+    "message-actions": "f4398a92809496b1ffb0f241de964a838096ce9f8aa8a06824435fd8010f1b51",
+    "service-events": "3cc9ba3dcec5e13f27af45203b0e130ae4313f217f6a56792bf8b76837b97d1b",
+    "mcp-apps-card": "3b7ab0c85674839ca1ffbd964829a51ec6949b5b5458365febe95cf71b90a0bd",
+    "team-workbench": "88397691d8e3ac71e4282e2e5faeba883b979b341a056bf7e2eeeb42dc6b04cf",
+    "extension-showcase": "5977f7f3d5f917d266cbf031bd6373e9bda379663f03b5f199ac1263220153e9",
+    "expense-workflow": "2f76356762f372e8da7fcc22fac89cec733ad7277e3e84331eaadf23c9f40933",
+    "submission-recovery": "a3832f4fe739bda51919357ff5fb3d54f20df65746bb11c270a5a6a9f97bb53f"
+  }
+}

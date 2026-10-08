@@ -1,0 +1,1200 @@
+[
+  {
+    "id": "hello-operation",
+    "title": {
+      "zh": "文本统计",
+      "en": "Text statistics"
+    },
+    "summary": {
+      "zh": "让页面和 Agent 调用同一个文本统计工具。",
+      "en": "Call the same text statistics operation from a page or the agent."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/hello-operation",
+    "docsUrl": "hello-operation/README.md",
+    "screenshot": "hello-operation/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "npm-data-transform",
+    "title": {
+      "zh": "CSV 数据转换",
+      "en": "CSV to JSON"
+    },
+    "summary": {
+      "zh": "粘贴 CSV，使用打包的 npm 依赖解析数据。",
+      "en": "Parse pasted CSV using a bundled npm dependency."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/npm-data-transform",
+    "docsUrl": "npm-data-transform/README.md",
+    "screenshot": "npm-data-transform/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "project-card",
+    "title": {
+      "zh": "项目卡片",
+      "en": "Project card"
+    },
+    "summary": {
+      "zh": "选择并授权项目，查看名称和说明。路径访问单独授权。",
+      "en": "Choose a project to read its details. Directory access requires a separate grant."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["projects.read", "projects.path.read"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/project-card",
+    "docsUrl": "project-card/README.md",
+    "screenshot": "project-card/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "extension-home",
+    "title": {
+      "zh": "扩展首页",
+      "en": "Extension home"
+    },
+    "summary": {
+      "zh": "从独立页面调用后台，查看业务记录。",
+      "en": "Read business records through the extension page bridge."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/extension-home",
+    "docsUrl": "extension-home/README.md",
+    "screenshot": "extension-home/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "theme-and-i18n",
+    "title": {
+      "zh": "主题与语言",
+      "en": "Theme and language"
+    },
+    "summary": {
+      "zh": "切换宿主语言和主题，观察页面的变化。",
+      "en": "Switch the host language and theme to update this page."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/theme-and-i18n",
+    "docsUrl": "theme-and-i18n/README.md",
+    "screenshot": "theme-and-i18n/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "host-dark-and-English",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "extension-icons",
+    "title": {
+      "zh": "扩展图标",
+      "en": "Extension icons"
+    },
+    "summary": {
+      "zh": "在宿主侧栏和扩展详情中查看浅深主题图标。",
+      "en": "Inspect packaged light and dark icons in the host sidebar and extension details."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/extension-icons",
+    "docsUrl": "extension-icons/README.md",
+    "screenshot": "extension-icons/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "dark-packaged-icon",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "storage-notebook",
+    "title": {
+      "zh": "本地便签",
+      "en": "Local notebook"
+    },
+    "summary": {
+      "zh": "先读取版本，再保存修改。另一个窗口的修改不会被静默覆盖。",
+      "en": "Read the revision before saving. Concurrent edits are never silently overwritten."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["storage"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/storage-notebook",
+    "docsUrl": "storage-notebook/README.md",
+    "screenshot": "storage-notebook/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "read-cas-save",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "configuration",
+    "title": {
+      "zh": "扩展设置",
+      "en": "Configuration"
+    },
+    "summary": {
+      "zh": "在扩展设置修改数量和备注，再查询后台观察到的变化。",
+      "en": "Change settings in the host, then inspect the observed configuration."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["configuration"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/configuration",
+    "docsUrl": "configuration/README.md",
+    "screenshot": "configuration/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "secret-input",
+    "title": {
+      "zh": "安全输入",
+      "en": "Secure input"
+    },
+    "summary": {
+      "zh": "通过宿主输入虚构密钥。此页面只知道密钥是否存在。",
+      "en": "Enter a fictional secret using the host. This page sees only whether it exists."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["secrets"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/secret-input",
+    "docsUrl": "secret-input/README.md",
+    "screenshot": "secret-input/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "contextual-entry",
+    "title": {
+      "zh": "条件入口",
+      "en": "Conditional entry"
+    },
+    "summary": {
+      "zh": "关联任务后显示额外入口，解除关联后隐藏。",
+      "en": "Show an extra command after linking a task; hide it after unlinking."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/contextual-entry",
+    "docsUrl": "contextual-entry/README.md",
+    "screenshot": "contextual-entry/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "context-key-set",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "conversation-launcher",
+    "title": {
+      "zh": "任务聊天",
+      "en": "Task conversations"
+    },
+    "summary": {
+      "zh": "为授权项目创建聊天草稿，再按 ID 打开原聊天。草稿不会自动运行模型。",
+      "en": "Create a draft in an authorized project and open it by ID. Creation never runs a model."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["projects.read", "conversations.create", "conversations.open"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/conversation-launcher",
+    "docsUrl": "conversation-launcher/README.md",
+    "screenshot": "conversation-launcher/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "create-and-open-existing",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "operation-confirmation",
+    "title": {
+      "zh": "操作确认",
+      "en": "Operation confirmation"
+    },
+    "summary": {
+      "zh": "添加或删除本地记录，观察宿主的写入确认。",
+      "en": "Add or remove a local record through host-controlled confirmation."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["storage"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/operation-confirmation",
+    "docsUrl": "operation-confirmation/README.md",
+    "screenshot": "operation-confirmation/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "confirm-create-read-delete",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "cancellation-and-errors",
+    "title": {
+      "zh": "取消与错误",
+      "en": "Cancellation and errors"
+    },
+    "summary": {
+      "zh": "启动慢读取，再取消等待。取消不代表回滚业务。",
+      "en": "Start a slow read and cancel waiting. Cancellation is not a business rollback."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/cancellation-and-errors",
+    "docsUrl": "cancellation-and-errors/README.md",
+    "screenshot": "cancellation-and-errors/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "cancel-read-wait",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "local-messages",
+    "title": {
+      "zh": "本地消息",
+      "en": "Local messages"
+    },
+    "summary": {
+      "zh": "发布、查询、更新和撤回同一条业务进展消息。",
+      "en": "Publish, query, update, and withdraw a local business notification."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/local-messages",
+    "docsUrl": "local-messages/README.md",
+    "screenshot": "local-messages/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "publish-duplicate-query-update-withdraw",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "declarative-intake",
+    "title": {
+      "zh": "团队信息收集",
+      "en": "Team intake"
+    },
+    "summary": {
+      "zh": "在聊天中填写七种字段，确认后发送到当前聊天。",
+      "en": "Fill seven field types in chat and confirm before sending."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/declarative-intake",
+    "docsUrl": "declarative-intake/README.md",
+    "screenshot": "declarative-intake/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "form-present",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "enterprise-auth",
+    "title": {
+      "zh": "企业服务连接",
+      "en": "Enterprise service connection"
+    },
+    "summary": {
+      "zh": "通过宿主连接企业账号，再读取已声明的 HTTPS 服务。",
+      "en": "Connect through the host and read a declared HTTPS resource."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/enterprise-auth",
+    "docsUrl": "enterprise-auth/README.md",
+    "screenshot": "enterprise-auth/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "production-idp",
+          "status": "not-run"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "production-idp",
+          "status": "not-run"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "production-idp",
+          "status": "not-run"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "message-actions",
+    "title": {
+      "zh": "消息业务操作",
+      "en": "Message actions"
+    },
+    "summary": {
+      "zh": "从消息提交任务，再查询服务结果。未知写入不自动重试。",
+      "en": "Submit from a notification and reconcile its result without repeating a write."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["configuration"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/message-actions",
+    "docsUrl": "message-actions/README.md",
+    "screenshot": "message-actions/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "unknown-read-reconcile",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "service-events",
+    "title": {
+      "zh": "业务消息推送",
+      "en": "Business event push"
+    },
+    "summary": {
+      "zh": "连接本机 SSE 服务，把版本化任务事件发布到消息中心。",
+      "en": "Connect to a local SSE service and publish versioned progress notifications."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["configuration", "storage"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/service-events",
+    "docsUrl": "service-events/README.md",
+    "screenshot": "service-events/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "push-dedup-order-disconnect",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "mcp-apps-card",
+    "title": {
+      "zh": "聊天内差旅卡片",
+      "en": "In-chat travel card"
+    },
+    "summary": {
+      "zh": "在聊天内修改差旅记录，确认后保存到扩展本地。",
+      "en": "Edit a travel card in chat and save a local record after confirmation."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["storage"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/mcp-apps-card",
+    "docsUrl": "mcp-apps-card/README.md",
+    "screenshot": "mcp-apps-card/screenshots/01-card.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "render-edit-confirm-save",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "team-workbench",
+    "title": {
+      "zh": "团队工作台",
+      "en": "Team workbench"
+    },
+    "summary": {
+      "zh": "关联项目、多个业务任务和聊天，继续原来的讨论。",
+      "en": "Connect projects, tasks, and conversations to continue your work."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [
+      "projects.read",
+      "projects.path.read",
+      "conversations.create",
+      "conversations.open",
+      "storage",
+      "configuration",
+      "secrets"
+    ],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/team-workbench",
+    "docsUrl": "team-workbench/README.md",
+    "screenshot": "team-workbench/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "extension-showcase",
+    "title": {
+      "zh": "扩展能力体验馆",
+      "en": "Extension showcase"
+    },
+    "summary": {
+      "zh": "体验项目、表单、消息、业务操作和企业连接。",
+      "en": "Explore projects, forms, messages, business actions, and enterprise connections."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": [
+      "projects.read",
+      "projects.path.read",
+      "conversations.create",
+      "conversations.open",
+      "storage",
+      "configuration",
+      "secrets"
+    ],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/extension-showcase",
+    "docsUrl": "extension-showcase/README.md",
+    "screenshot": "extension-showcase/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "expense-workflow",
+    "title": {
+      "zh": "差旅报销助手",
+      "en": "Travel expense assistant"
+    },
+    "summary": {
+      "zh": "在聊天里填写、核对并提交报销，断线后也能核实结果。",
+      "en": "Fill, review, and submit a claim in chat, then reconcile uncertain results."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["configuration"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/expense-workflow",
+    "docsUrl": "expense-workflow/README.md",
+    "screenshot": "expense-workflow/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "three-step-claim",
+          "status": "passed"
+        },
+        {
+          "name": "records-query",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "drop-response-recovery",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "new-page-initial-locale",
+          "status": "blocked"
+        },
+        {
+          "name": "English-dark-home",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "submission-recovery",
+    "title": {
+      "zh": "提交结果核实",
+      "en": "Submission recovery"
+    },
+    "summary": {
+      "zh": "注入丢响应故障，再只读核实原提交结果。",
+      "en": "Drop a write response and reconcile the original submission without replay."
+    },
+    "status": "preview",
+    "apiMaturity": "developer-preview",
+    "sdkVersion": "0.1.0-alpha.7",
+    "permissions": ["configuration"],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/submission-recovery",
+    "docsUrl": "submission-recovery/README.md",
+    "screenshot": "submission-recovery/screenshots/01-home.png",
+    "tags": [],
+    "verification": {
+      "desktop": "partial",
+      "reports": [
+        "docs/evidence/desktop.json",
+        "docs/evidence/desktop-advanced.json",
+        "docs/evidence/desktop-appearance.json"
+      ],
+      "checks": [
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "home-render",
+          "status": "passed"
+        },
+        {
+          "name": "drop-response-recovery",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        },
+        {
+          "name": "archive-install",
+          "status": "passed"
+        }
+      ]
+    },
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+  },
+  {
+    "id": "conversation-events",
+    "title": {
+      "zh": "聊天进展观察器",
+      "en": "Conversation events"
+    },
+    "summary": {
+      "zh": "等待宿主公开聊天事件及轮次读取接口。",
+      "en": "Waiting for public conversation hooks and versioned turn reads."
+    },
+    "status": "planned",
+    "apiMaturity": "proposed",
+    "sdkVersion": null,
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/conversation-events",
+    "docsUrl": "conversation-events/README.md",
+    "screenshot": null,
+    "tags": ["M2"],
+    "verification": {
+      "desktop": "unsupported"
+    }
+  },
+  {
+    "id": "conversation-business-sync",
+    "title": {
+      "zh": "聊天结果同步",
+      "en": "Conversation business sync"
+    },
+    "summary": {
+      "zh": "等待宿主公开聊天事件及轮次读取接口。",
+      "en": "Waiting for public conversation hooks and versioned turn reads."
+    },
+    "status": "planned",
+    "apiMaturity": "proposed",
+    "sdkVersion": null,
+    "permissions": [],
+    "sourceUrl": "https://github.com/fjb040911/ambleloft-extension-samples/tree/main/conversation-business-sync",
+    "docsUrl": "conversation-business-sync/README.md",
+    "screenshot": null,
+    "tags": ["M2"],
+    "verification": {
+      "desktop": "unsupported"
+    }
+  }
+]

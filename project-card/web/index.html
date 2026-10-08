@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>项目卡片</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="eyebrow">AMBLELOFT / EXTENSION SAMPLES</span>
+        <h1 id="title">项目卡片</h1>
+        <p id="intro">选择并授权项目，查看名称和说明。路径访问单独授权。</p>
+        <span class="tag">project-card</span>
+      </header>
+      <div class="layout">
+        <section class="panel">
+          <h2>体验操作 · Try it</h2>
+          <div id="fields"></div>
+          <div class="actions" id="buttons"></div>
+          <div class="actions">
+            <button class="secondary" id="cancel" disabled>取消等待 / Stop waiting</button>
+          </div>
+          <div id="status" role="status" aria-live="polite"></div>
+        </section>
+        <section class="panel">
+          <h2>执行结果 · Result</h2>
+          <pre id="result">尚未执行操作 / No operation yet</pre>
+        </section>
+      </div>
+      <footer>SDK 0.1.0-alpha.7 · 公开预览 / Developer preview · samples.project-card</footer>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

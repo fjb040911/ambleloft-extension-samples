@@ -1,0 +1,23 @@
+{
+  "name": "sample-service-events",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node build.cjs",
+    "validate": "amble-extension validate dist/package",
+    "pack": "amble-extension pack dist/package dist/service-events.amble-extension --force",
+    "test": "node --test tests/*.test.cjs",
+    "service": "node service/server.cjs",
+    "validate:archive": "amble-extension validate dist/service-events.amble-extension"
+  },
+  "devDependencies": {
+    "@ambleloft/extension-sdk": "0.1.0-alpha.7",
+    "@ambleloft/extension-cli": "0.1.0-alpha.7",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3",
+    "@types/node": "22.20.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "sample-team-workbench",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "validate": "amble-extension validate dist/package",
+    "pack": "amble-extension pack dist/package dist/team-workbench.amble-extension --force",
+    "service": "node service/server.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "validate:archive": "amble-extension validate dist/team-workbench.amble-extension"
+  },
+  "devDependencies": {
+    "@ambleloft/extension-sdk": "0.1.0-alpha.7",
+    "@ambleloft/extension-cli": "0.1.0-alpha.7",
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3",
+    "@types/node": "22.20.0"
+  }
+}
