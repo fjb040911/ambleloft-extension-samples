@@ -392,3 +392,12 @@ Plan a conversation progress observer and a conversation-to-ticket synchronizati
 Use clear task-oriented copy, separate planned/preview/verified sample status from API maturity, and link website claims to actual verification evidence. Keep this document and its public download copy identical.
 
 Prioritize expense-workflow as the flagship. Ship the no-account local flow and durable submission recovery first (F0/F1), then add business notifications/actions (F2) and host-mediated enterprise authentication (F3). Those integrations are planned sample work, not existing expense-template functionality. Add focused message-actions, enterprise-auth, and extension-icons samples, bringing the catalog to 25 planned entries. Current public previews include OIDC resource sessions, bounded HTTPS requests, persistent message action results, packaged icons, npm create, and source-only doctor diagnostics. Conversation hooks and direct form resume/presentation APIs remain unavailable.
+
+
+## 聊天界面渲染方式的文档要求
+
+案例必须明确标注“宿主渲染表单”或“扩展页面通过 iframe 渲染”，并区分独立扩展首页。入口、截图说明、源码路径及调用流程必须保持一致。Agent 触发展示，不应表述为 Agent 绘制界面。详见 [两种方式对照](chat-ui-rendering.zh-CN.md)。
+
+- declarative-intake、expense-workflow、submission-recovery：宿主渲染 YAML 表单。
+- mcp-apps-card：包内 HTML 经 MCP Apps 协议在聊天 iframe 中展示；没有独立首页。
+- 不要求报销维护两套相同的写入 UI；两种方式的最小案例分别承担教学职责。

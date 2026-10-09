@@ -8,6 +8,13 @@ Independent examples for operations, project conversations, forms, notifications
 
 *Real Ambleloft desktop with a local demo service and fixture model; fictional data only.*
 
+## Choose a chat UI rendering approach
+
+- **Host-rendered form**: declare YAML; the host renders fields and steps. Start with [declarative-intake](declarative-intake/README.md), then [expense-workflow](expense-workflow/README.md).
+- **Extension page in an iframe**: author HTML/CSS/JavaScript; the host embeds it in chat. See [mcp-apps-card](mcp-apps-card/README.md).
+
+[Comparison, call flows and screenshots](docs/chat-ui-rendering.md). An independent extension home is a separate surface, not the chat iframe.
+
 ## Start
 
 SDK/CLI `0.1.0-alpha.7` are published on npm. Use Node ≥22.13. Inside any sample run `npm ci`, `npm run build`, `npm run validate`, `npm test`, and `npm run pack`. Every runnable directory has its own lockfile and no adjacent-repository dependency.

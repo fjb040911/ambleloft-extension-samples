@@ -4,6 +4,11 @@
 
 在聊天内修改差旅记录，确认后保存到扩展本地。
 
+
+**聊天内渲染方式：扩展 HTML 页面，由宿主 iframe 承载（MCP Apps）。** 本例的界面与交互写在 `form.html`；Agent 调用 render 触发展示，页面通过 MCP Apps 协议请求保存。它不是宿主根据 YAML 生成的表单，也没有独立扩展首页。
+
+[两种方式的对照与截图](../docs/chat-ui-rendering.zh-CN.md).
+
 ## 运行
 
 需要 Node.js ≥22.13 和支持扩展的 Ambleloft。SDK/CLI 从 npm 安装，版本固定为 `0.1.0-alpha.7`，无需相邻源码仓库。
@@ -17,7 +22,7 @@ npm test
 npm run pack
 ```
 
-在宿主 **设置 → 扩展 → 安装扩展** 选择 `dist/mcp-apps-card.amble-extension`，信任后按提示授权，再打开扩展首页。安装包 ID 为 `samples.mcp-apps-card`。
+在宿主 **设置 → 扩展 → 安装扩展** 选择 `dist/mcp-apps-card.amble-extension`，信任后按提示授权，然后按下方提示词在聊天中打开卡片。安装包 ID 为 `samples.mcp-apps-card`。
 
 ## 体验步骤
 
@@ -27,9 +32,9 @@ npm run pack
 
 以下图片采集自 macOS 上的真实 Ambleloft 桌面，使用隔离 profile、虚构数据、本机模拟服务和确定性模拟模型。扩展页面截图来自实际隔离 WebContents；表单和消息截图来自宿主窗口。它们不是设计稿或浏览器 mock。
 
-![Agent 渲染的 MCP Apps 差旅卡片。](screenshots/01-card.png)
+![扩展 HTML 通过宿主 iframe 显示的差旅卡片。](screenshots/01-card.png)
 
-Agent 渲染的 MCP Apps 差旅卡片。
+扩展 HTML 通过宿主 iframe 显示的差旅卡片。
 
 ![用户确认后保存本地记录。](screenshots/02-saved.png)
 
@@ -41,7 +46,7 @@ Agent 渲染的 MCP Apps 差旅卡片。
 
 `storage`
 
-项目权限限定到用户授权项目；storage/configuration/secrets 为扩展自身。声明权限不等于已获授权。Node 后台使用公开 SDK，页面通过宿主桥调用；MCP Apps 卡片使用独立任务 UI 协议。
+项目权限限定到用户授权项目；storage/configuration/secrets 为扩展自身。声明权限不等于已获授权。Node 后台使用公开 SDK；聊天 iframe 页面通过 MCP Apps UI 协议调用操作，不使用独立扩展首页的 webview 桥。
 
 | Operation | Handler | Effect | Caller |
 | --- | --- | --- | --- |

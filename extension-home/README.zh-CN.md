@@ -4,6 +4,11 @@
 
 从独立页面调用后台，查看业务记录。
 
+
+**展示位置：独立扩展首页。** 本例使用 SDK webview 桥，不是聊天内 iframe。聊天内自定义页面请看 `mcp-apps-card`。
+
+[两种方式的对照与截图](../docs/chat-ui-rendering.zh-CN.md).
+
 ## 运行
 
 需要 Node.js ≥22.13 和支持扩展的 Ambleloft。SDK/CLI 从 npm 安装，版本固定为 `0.1.0-alpha.7`，无需相邻源码仓库。
@@ -37,7 +42,7 @@ npm run pack
 
 `none / 无`
 
-项目权限限定到用户授权项目；storage/configuration/secrets 为扩展自身。声明权限不等于已获授权。Node 后台使用公开 SDK，页面通过宿主桥调用；MCP Apps 卡片使用独立任务 UI 协议。
+项目权限限定到用户授权项目；storage/configuration/secrets 为扩展自身。声明权限不等于已获授权。Node 后台使用公开 SDK，独立扩展首页使用 webview 桥。本例不包含聊天内 iframe。
 
 | Operation | Handler | Effect | Caller |
 | --- | --- | --- | --- |

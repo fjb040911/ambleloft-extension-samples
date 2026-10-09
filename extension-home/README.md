@@ -4,6 +4,11 @@
 
 Read business records through the extension page bridge.
 
+
+**Surface: independent extension home.** This example uses the SDK webview bridge, not a chat iframe. For a custom page inside chat, see `mcp-apps-card`.
+
+[Compare both approaches and screenshots](../docs/chat-ui-rendering.md).
+
 ## Run
 
 Requires Node.js ≥22.13 and an Ambleloft host with extension support. SDK/CLI are installed from npm, pinned to `0.1.0-alpha.7`; no adjacent source repository is needed.
@@ -37,7 +42,7 @@ Extension home running in the real host.
 
 `none / 无`
 
-Project permissions are scoped to the user-selected project; storage/configuration/secrets are extension-local. Declaration is not a grant. Node uses the public SDK; pages use the host bridge. MCP Apps has a separate task UI protocol.
+Project permissions are scoped to the user-selected project; storage/configuration/secrets are extension-local. Declaration is not a grant. The Node backend uses the public SDK; the independent extension home uses the webview bridge. This example has no chat iframe.
 
 | Operation | Handler | Effect | Caller |
 | --- | --- | --- | --- |

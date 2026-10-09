@@ -4,6 +4,11 @@
 
 Drop a write response and reconcile the original submission without replay.
 
+
+**Chat UI: host-rendered declarative form (YAML).** The extension declares fields, steps and submission behavior; the host renders the chat controls. This chat form is not an iframe page. The independent extension home provides guidance or queries, not the chat form renderer.
+
+[Compare both approaches and screenshots](../docs/chat-ui-rendering.md).
+
 ## Run
 
 Requires Node.js ≥22.13 and an Ambleloft host with extension support. SDK/CLI are installed from npm, pinned to `0.1.0-alpha.7`; no adjacent source repository is needed.
@@ -24,6 +29,8 @@ In host **Settings → Extensions → Install**, choose `dist/submission-recover
 Run `npm run service`, set `serviceUrl=http://127.0.0.1:47832`, and ask the agent to present this extension’s travel form. Inject the dropped response below and reconcile from the original form. Do not start this and expense-workflow on the same port.
 
 ## Screenshots and verification
+
+Home screenshots show an independent extension page; chat fields and steps show a host-rendered YAML form.
 
 Captured from the real Ambleloft desktop on macOS with an isolated profile, fictional data, local demo services, and a deterministic fixture model. Extension page images come from actual isolated WebContents; forms and messages come from the host window. These are not design mockups or browser mocks.
 
@@ -57,7 +64,7 @@ Reconciliation changes the status to submitted; ledger assertions confirm one cl
 
 `configuration`
 
-Project permissions are scoped to the user-selected project; storage/configuration/secrets are extension-local. Declaration is not a grant. Node uses the public SDK; pages use the host bridge. MCP Apps has a separate task UI protocol.
+Project permissions are scoped to the user-selected project; storage/configuration/secrets are extension-local. Declaration is not a grant. The Node backend uses the public SDK; the independent extension home uses the webview bridge. The host interprets and renders the YAML form in chat.
 
 | Operation | Handler | Effect | Caller |
 | --- | --- | --- | --- |

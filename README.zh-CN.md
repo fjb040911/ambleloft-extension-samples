@@ -8,6 +8,13 @@
 
 *真实 Ambleloft 桌面，本机模拟服务与模拟模型；仅使用虚构数据。*
 
+## 聊天内界面：先区分两种方式
+
+- **宿主渲染表单**：扩展声明 YAML，宿主绘制字段和步骤。入门看 [declarative-intake](declarative-intake/README.zh-CN.md)，业务流程看 [expense-workflow](expense-workflow/README.zh-CN.md)。
+- **扩展页面通过 iframe 渲染**：扩展提供 HTML/CSS/JavaScript，宿主在聊天中嵌入页面。看 [mcp-apps-card](mcp-apps-card/README.zh-CN.md)。
+
+[对照说明、调用流程与截图](docs/chat-ui-rendering.zh-CN.md)。独立扩展首页是另一个展示位置，不等同于聊天 iframe。
+
 ## 开始
 
 SDK/CLI `0.1.0-alpha.7` 已在 npm 发布。Node ≥22.13。克隆后进入任一案例运行 `npm ci`、`npm run build`、`npm run validate`、`npm test`、`npm run pack`。每个目录有独立 lockfile，不依赖相邻仓库。

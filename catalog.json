@@ -723,7 +723,8 @@
         }
       ]
     },
-    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3",
+    "chatUiRendering": "host-form"
   },
   {
     "id": "enterprise-auth",
@@ -927,7 +928,8 @@
         }
       ]
     },
-    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3",
+    "chatUiRendering": "extension-iframe"
   },
   {
     "id": "team-workbench",
@@ -1101,7 +1103,8 @@
         }
       ]
     },
-    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3",
+    "chatUiRendering": "host-form"
   },
   {
     "id": "submission-recovery",
@@ -1151,7 +1154,8 @@
         }
       ]
     },
-    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3"
+    "testedHostCommit": "237e8c6746e8e0ed6a17edffe44877a3118068d3",
+    "chatUiRendering": "host-form"
   },
   {
     "id": "conversation-events",
